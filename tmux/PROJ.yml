@@ -1,0 +1,49 @@
+# /Users/jonatasdev/.config/tmuxinator/PROJ.yml
+
+name: PROJ
+root: ~/
+
+windows:
+  - Partyou:
+      layout: main-vertical
+      root: ~/workspace/partyou-web
+      panes:
+        - nvim
+        - git fetch
+        - poetry shell
+  # - HAIR_SCHOOL:
+  #     layout: main-vertical
+  #     root: ~/workspace
+  #     panes:
+  #       - nvim
+  #       - ls
+  - KUBERNETES:
+      layout: tiled
+      root: ~/.kube
+      panes:
+        - kubectl logs -f -n staging -l app=stg-web
+        - kubectl logs -f -n production -l app=prod-web
+        - kubectl get pods -n staging
+        - kubectl get pods -n production
+  - GLANCES:
+      layout: main-vertical
+      panes:
+        - glances
+  - MAN:
+      layout: main-vertical
+      panes:
+        - man tmux
+        - man vim
+  - CONFIGs:
+      layout: tiled
+      panes:
+        - nvim ~/.zshrc
+        - nvim ~/.config/nvim/init.vim
+        - nvim ~/.tmux.conf
+        - ls
+  - Terminal:
+      layout: main-vertical
+      panes:
+        - ranger
+        - ls
+        - ls
