@@ -1,16 +1,8 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # starship
 eval "$(starship init zsh)"
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/jonatasdev/.oh-my-zsh"
-
 
 # Uncomment the following line to display red dots whilst waiting for completion.
  # COMPLETION_WAITING_DOTS="true"
@@ -46,16 +38,10 @@ source <(kubectl completion zsh)
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # User configuration
-
 export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
-
-
-# Compilation flags
-export LDFLAGS="-L/usr/local/opt/openssl/lib"
-export CPPFLAGS="-I/usr/local/opt/openssl/include"
 
 # ENVs AND CONFIGs
 export DOCKER_CONFIG="True"
@@ -66,17 +52,20 @@ export PROJECT_HOME=~/workspace
 export PATH=$PATH:$HOME/.pyenv/bin:$HOME/.istio/bin:$HOME/.local/bin
 eval "$(pyenv init -)"
 
-
 export PATH="$(yarn global bin):$PATH"
 export PATH="$PATH:`pwd`/flutter/bin"
 
-# iF you need to have icu4c first in your PATH run:
-export PATH="/usr/local/opt/icu4c/bin:$PATH"
-export PATH="/usr/local/opt/icu4c/sbin:$PATH"
+# Compilation flags
+export LDFLAGS="-L/usr/local/opt/openssl/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl/include"
 
 # For compilers to find icu4c you may need to set:
 export LDFLAGS="-L/usr/local/opt/icu4c/lib"
 export CPPFLAGS="-I/usr/local/opt/icu4c/include"
+
+# iF you need to have icu4c first in your PATH run:
+export PATH="/usr/local/opt/icu4c/bin:$PATH"
+export PATH="/usr/local/opt/icu4c/sbin:$PATH"
 
 # For pkg-config to find icu4c you may need to set:
 export PKG_CONFIG_PATH="/usr/local/opt/icu4c/lib/pkgconfig"
@@ -105,11 +94,6 @@ export CPATH=`xcrun --show-sdk-path`/usr/include
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# if command -v tmuxinator &> /dev/null && [ -z "$TMUX" ]; then
-#     tmuxinator start PROJ || tmuxinator start PROJ
-# fi
-#
-
 # Defaul Editor
 export EDITOR='nvim'
 
@@ -117,6 +101,7 @@ export EDITOR='nvim'
 alias lf='ls -F'
 alias update='sudo apt update && sudo apt upgrade -y && sudo apt dist-upgrade -y'
 alias notebook='jupyter-notebook'
+alias metabase='gcloud compute ssh metabase --zone=southamerica-east1-b'
 alias vim='nvim'
 alias v='nvim'
 alias production='kubectl -n production get pods'
@@ -130,7 +115,6 @@ alias klogs='kubectl logs -f'
 alias k='kubectl'
 alias cat='bat'
 alias ls='exa'
-
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/jonatasdev/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/jonatasdev/Downloads/google-cloud-sdk/path.zsh.inc'; fi
