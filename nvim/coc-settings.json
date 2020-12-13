@@ -1,53 +1,27 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": ["python", "dart", "go", "html", "json", "yaml"],
-
+  "coc.preferences.formatOnSaveFiletypes": [
+    "dart",
+    "go",
+    "json",
+    "yaml",
+    "vue",
+    "js"
+  ],
   // python config
   "python.linting.enabled": true,
   "python.linting.pep8Enabled": true,
   "python.linting.pep8Args": ["--max-line-length=180"],
-
-  // Explorer config
-  "explorer.icon.enableNerdfont": true,
-  "explorer.icon.enableVimDevicons": true,
-  "explorer.buffer.showHiddenBuffers": true,
-  "explorer.file.showHiddenFiles": true,
-  "explorer.file.column.git.showIgnored": true,
-
   // flutter config
   "flutter.trace.server": "verbose",
   "flutter.lsp.initialization.closingLabels": true,
-
   // Go
   "go.enable": true,
-
   // HTML
   "html.validate.scripts": true,
   "html.validate.styles": true,
   "html.autoClosingTags": true,
-
   // Yaml
   "yaml.format.enable": true,
-
-  //Bookmarks
-  "bookmark.enable": {
-      "type": "boolean",
-      "default": true,
-      "description": "Whether to enable this extension"
-  },
-  "bookmark.maxsize": {
-      "type": "number",
-      "default": 5000,
-      "description": "Maxsize of bookmark"
-  },
-  "bookmark.sign": {
-      "type": "string",
-      "default": "⚑",
-      "description": "Bookmark icon for sign column"
-  },
-  "bookmark.signHi": {
-      "type": "string",
-      "default": "Identifier",
-      "description": "Highlight group for sign"
-  }
-
+  "explorer.icon.enableVimDevicons": true,
+  "explorer.icon.enableNerdfont": true
 }

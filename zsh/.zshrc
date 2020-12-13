@@ -5,14 +5,15 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# starship
+eval "$(starship init zsh)"
+
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/jonatasdev/.oh-my-zsh"
 
-# THEME
-ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
- COMPLETION_WAITING_DOTS="true"
+ # COMPLETION_WAITING_DOTS="true"
 
  # PLUGINS
 plugins=(
@@ -37,8 +38,9 @@ plugins=(
     )
 
 # Add vi-mode
-export RPS1="%{$reset_color%}"
+# export RPS1="%{$reset_color%}"
 
+# KUBECTL completion
 source $ZSH/oh-my-zsh.sh
 source <(kubectl completion zsh)
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -61,7 +63,7 @@ export PARTYOU_CONFIG="docker_config_local_no_pass"
 
 export WORKON_HOME=~/.ve
 export PROJECT_HOME=~/workspace
-export PATH=$PATH:$HOME/.pyenv/bin:$HOME/istio/bin:$HOME/.local/bin
+export PATH=$PATH:$HOME/.pyenv/bin:$HOME/.istio/bin:$HOME/.local/bin
 eval "$(pyenv init -)"
 
 
@@ -95,12 +97,6 @@ export CPPFLAGS="-I/usr/local/opt/krb5/include"
 # For pkg-config to find krb5 you may need to set:
 export PKG_CONFIG_PATH="/usr/local/opt/krb5/lib/pkgconfig"
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/jonatasdev/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/jonatasdev/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/jonatasdev/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/jonatasdev/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-
 #export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -112,18 +108,15 @@ export CPATH=`xcrun --show-sdk-path`/usr/include
 # if command -v tmuxinator &> /dev/null && [ -z "$TMUX" ]; then
 #     tmuxinator start PROJ || tmuxinator start PROJ
 # fi
+#
 
 # Defaul Editor
 export EDITOR='nvim'
 
 # ALIASES
 alias lf='ls -F'
-alias hair-mautic='ssh root@157.245.122.170'
-alias host-compartilhado='ssh root@138.197.75.215'
 alias update='sudo apt update && sudo apt upgrade -y && sudo apt dist-upgrade -y'
-alias fabiana-debian='ssh root@167.172.26.163'
 alias notebook='jupyter-notebook'
-alias metabase='gcloud compute ssh metabase --zone=southamerica-east1-b'
 alias vim='nvim'
 alias v='nvim'
 alias production='kubectl -n production get pods'
@@ -135,6 +128,18 @@ alias namespace='kubectl get namespaces'
 alias ctags="`brew --prefix`/bin/ctags"
 alias klogs='kubectl logs -f'
 alias k='kubectl'
+alias cat='bat'
+alias ls='exa'
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/jonatasdev/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/jonatasdev/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/jonatasdev/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/jonatasdev/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+# kitty completion
+autoload -Uz compinit
+compinit
+# Completion for kitty
+kitty + complete setup zsh | source /dev/stdin

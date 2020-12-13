@@ -1,16 +1,14 @@
-env:
-  TERM: xterm-256color
-
 window:
   dimensions:
-    columns: 235
-    lines: 54
+    columns: 205
+    lines: 50
   padding:
     x: 6
     y: 6
   dynamic_padding: true
   decorations: none
-  #   startup_mode: Maximized
+  # Allow terminal applications to change Alacritty's window title.
+  dynamic_title: true
 
 scrolling:
   history: 100000
@@ -19,19 +17,19 @@ scrolling:
   # tabspaces: 8
 font:
   normal:
-    family: Mononoki Nerd Font
+    family: Fira Code
     style: Regular
 
   bold:
-    family: Mononoki Nerd Font
+    family: Fira Code
     style: Bold
 
   italic:
-    family: Mononoki Nerd Font
+    family: Fira Code
     style: Italic
 
   bold_italic:
-    family: Mononoki Nerd Font
+    family: Fira Code
     style: Bold Italic
 
   size: 16.0
@@ -43,12 +41,12 @@ font:
     y: 0
   use_thin_strokes: true
 
-# Colors (Dracula)
+# Colors (Dracula PRO)
 colors:
   # Default colors
   primary:
-    background: '0x282a36'
-    foreground: '0xf8f8f2'
+    background: "0x22212c"
+    foreground: "0xf8f8f2"
 
     # Bright and dim foreground colors
     #
@@ -63,58 +61,67 @@ colors:
   # Colors which should be used to draw the terminal cursor. If these are unset,
   # the cursor color will be the inverse of the cell color.
   cursor:
-    text: '0x44475a'
-    cursor: '0xf8f8f2'
+    text: "0x454158"
+    cursor: "0xf8f8f2"
+
+  # Selection colors
+  #
+  # Colors which should be used to draw the selection area. If selection
+  # background is unset, selection color will be the inverse of the cell colors.
+  # If only text is unset the cell text color will remain the same.
+  selection:
+    text: "0xf8f8f2"
+    background: "0x454158"
 
   # Normal colors
   normal:
-    black:   '0x000000'
-    red:     '0xff5555'
-    green:   '0x50fa7b'
-    yellow:  '0xf1fa8c'
-    blue:    '0xbd93f9'
-    magenta: '0xff79c6'
-    cyan:    '0x8be9fd'
-    white:   '0xbfbfbf'
+    black: "0x22212c"
+    red: "0xff9580"
+    green: "0x8aff80"
+    yellow: "0xffff80"
+    blue: "0x9580ff"
+    magenta: "0xff80bf"
+    cyan: "0x80ffea"
+    white: "0xf8f8f2"
 
   # Bright colors
   bright:
-    black:   '0x4d4d4d'
-    red:     '0xff6e67'
-    green:   '0x5af78e'
-    yellow:  '0xf4f99d'
-    blue:    '0xcaa9fa'
-    magenta: '0xff92d0'
-    cyan:    '0x9aedfe'
-    white:   '0xe6e6e6'
+    black: "0x22212c"
+    red: "0xffaa99"
+    green: "0xa2ff99"
+    yellow: "0xffff99"
+    blue: "0xaa99ff"
+    magenta: "0xff99cc"
+    cyan: "0x99ffee"
+    white: "0xffffff"
 
-  # Dim colors
-  #
-  # If the dim colors are not set, they will be calculated automatically based
-  # on the `normal` colors.
-  dim:
-    black:   '0x14151b'
-    red:     '0xff2222'
-    green:   '0x1ef956'
-    yellow:  '0xebf85b'
-    blue:    '0x4d5b86'
-    magenta: '0xff46b0'
-    cyan:    '0x59dffc'
-    white:   '0xe6e6d1'
+    # Dim colors
+    #
+    # If the dim colors are not set, they will be calculated automatically based
+    # on the `normal` colors.
+    dim:
+      black: "0x14151b"
+      red: "0xff2222"
+      green: "0x1ef956"
+      yellow: "0xebf85b"
+      blue: "0x4d5b86"
+      magenta: "0xff46b0"
+      cyan: "0x59dffc"
+      white: "0xe6e6d1"
 
-  # Indexed Colors
-  #
-  # The indexed colors include all colors from 16 to 256.
-  # When these are not set, they're filled with sensible defaults.
-  #
-  # Example:
-  #   `- { index: 16, color: '0xff00ff' }`
-  #
-  indexed_colors: []
+    # Indexed Colors
+    #
+    # The indexed colors include all colors from 16 to 256.
+    # When these are not set, they're filled with sensible defaults.
+    #
+    # Example:
+    #   `- { index: 16, color: '0xff00ff' }`
+    #
+    indexed_colors: []
 
 background_opacity: 0.9
 
-visual_bell:
+bell:
   animation: EaseOutExpo
   duration: 0
   color: "0xffffff"
@@ -131,16 +138,12 @@ selection:
   semantic_escape_chars: ',│`|:"'' ()[]{}<>'
   save_to_clipboard: false
 
-# Allow terminal applications to change Alacritty's window title.
-dynamic_title: true
-
 cursor:
   style: Block
   unfocused_hollow: true
 
 # Live config reload (changes require restart)
 live_config_reload: true
-
 
 key_bindings:
   - { key: V, mods: Command, action: Paste }
