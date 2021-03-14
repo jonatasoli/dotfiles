@@ -118,11 +118,6 @@ Plug 'jistr/vim-nerdtree-tabs' "Permite manter tabs / remover todas as tabs / ab
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight' "Mostra os icones das linguagens no NERDTRee
 Plug 'ryanoasis/vim-devicons' "Icones pro nerdtree
 
-"Telescope
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-
 "Comentários
 Plug 'tpope/vim-commentary' "Permite fazer comentários com gc
 
@@ -130,7 +125,6 @@ Plug 'tpope/vim-commentary' "Permite fazer comentários com gc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'voldikss/vim-floaterm'
 Plug 'dart-lang/dart-vim-plugin'
-Plug 'fisadev/vim-isort'
 
 "Busca
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -142,7 +136,6 @@ Plug 'wincent/ferret' "Buscar e substituir em todos os arquivos
 "Utilitários
 Plug 'mhinz/vim-startify' "Mostra na tela inicial do vim os ultimos arquivos abertos
 Plug 'Yggdroot/indentLine' "Coloca um tracejado pra guiar a hierarquia das funções
-Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' } "modo python para refactors
 
 " Tmux
 Plug 'christoomey/vim-tmux-navigator' "Pra navegar no tmux
@@ -173,14 +166,13 @@ call plug#end()
 "*****************************************************************************
 "*****************************************************************************
 
-"packadd! dracula_pro
+packadd! dracula_pro
 
 syntax enable
 
 let g:dracula_colorterm = 0
 
-"colorscheme dracula_pro
-colorscheme dracula
+colorscheme dracula_pro
 hi Normal guibg=NONE ctermbg=NONE
 
 "*****************************************************************************
@@ -228,13 +220,6 @@ let g:NERDTreeMinimalUI = 1
 let g:NERDTreeStatusline = ''
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 nnoremap <silent> <F2> :NERDTreeFind<CR>
-
-"Telescope
-"" Find files using Telescope command-line sugar.
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 "Ctags
 set tags=tags
@@ -284,9 +269,6 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-
-" isort
-let g:vim_isort_map = '<C-i>'
 
 
 " GoTo code navigation.
@@ -469,7 +451,6 @@ let g:airline#extensions#tagbar#enabled = 1
 let g:airline_skip_empty_sections = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#nvimlsp#enabled = 0
 
 "*****************************************************************************
 "" Commands

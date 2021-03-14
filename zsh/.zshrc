@@ -2,7 +2,18 @@
 eval "$(starship init zsh)"
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/jonatasdev/.oh-my-zsh"
+export ZSH="/Users/jonatasoliveira/.oh-my-zsh"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/jonatasoliveira/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/jonatasoliveira/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/jonatasoliveira/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/jonatasoliveira/google-cloud-sdk/completion.zsh.inc'; fi
+
+# KUBECTL completion
+source $ZSH/oh-my-zsh.sh
+source <(kubectl completion zsh)
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Uncomment the following line to display red dots whilst waiting for completion.
  # COMPLETION_WAITING_DOTS="true"
@@ -32,11 +43,6 @@ plugins=(
 # Add vi-mode
 # export RPS1="%{$reset_color%}"
 
-# KUBECTL completion
-source $ZSH/oh-my-zsh.sh
-source <(kubectl completion zsh)
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 # User configuration
 export MANPATH="/usr/local/man:$MANPATH"
 
@@ -54,6 +60,11 @@ eval "$(pyenv init -)"
 
 export PATH="$(yarn global bin):$PATH"
 export PATH="$PATH:`pwd`/flutter/bin"
+
+# Postgres
+# export PATH="/usr/local/Cellar/postgresql@10/10.15/bin:$PATH"
+# export PATH="/usr/local/Cellar/postgresql@10/10.15/bin/pg_config:$PATH"
+export PATH="/usr/local/bin/pg_config:$PATH"
 
 # Compilation flags
 export LDFLAGS="-L/usr/local/opt/openssl/lib"
@@ -79,6 +90,9 @@ export PKG_CONFIG_PATH="/usr/local/opt/icu4c/lib/pkgconfig"
 export PATH="/usr/local/opt/krb5/bin:$PATH"
 export PATH="/usr/local/opt/krb5/sbin:$PATH"
 
+# Rust
+export PATH="$HOME/.cargo/bin):$PATH"
+
 # For compilers to find krb5 you may need to set:
 export LDFLAGS="-L/usr/local/opt/krb5/lib"
 export CPPFLAGS="-I/usr/local/opt/krb5/include"
@@ -86,7 +100,11 @@ export CPPFLAGS="-I/usr/local/opt/krb5/include"
 # For pkg-config to find krb5 you may need to set:
 export PKG_CONFIG_PATH="/usr/local/opt/krb5/lib/pkgconfig"
 
-#export NVM_DIR="$HOME/.nvm"
+# OPENSSL
+export LDFLAGS="-L/usr/local/opt/openssl/lib"
+export CFLAGS="-I/usr/local/opt/openssl/include"
+
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
@@ -115,12 +133,6 @@ alias klogs='kubectl logs -f'
 alias k='kubectl'
 alias cat='bat'
 alias ls='exa'
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/jonatasdev/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/jonatasdev/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/jonatasdev/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/jonatasdev/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
 # kitty completion
 autoload -Uz compinit
