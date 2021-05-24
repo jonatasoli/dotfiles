@@ -1,0 +1,78 @@
+### EXPORT ###
+#set -U fish_user_paths $HOME/.local/bin $HOME/Applications $fish_user_paths
+set fish_greeting                                 # Supresses fish's intro message
+set TERM "alacritty"                              # Sets the terminal type
+set EDITOR "nvim"                 		  # $EDITOR use NVIM in terminal
+
+### SET MANPAGER
+### Uncomment only one of these!
+
+### "bat" as manpager
+set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
+
+### SET EITHER DEFAULT EMACS MODE OR VI MODE ###
+function fish_user_key_bindings
+  # fish_default_key_bindings
+  fish_vi_key_bindings
+end
+### END OF VI MODE ###
+
+### AUTOCOMPLETE AND HIGHLIGHT COLORS ###
+set fish_color_normal brcyan
+set fish_color_autosuggestion '#7d7d7d'
+set fish_color_command brcyan
+set fish_color_error '#ff6c6b'
+set fish_color_param brcyan
+
+
+# Functions needed for !! and !$
+function __history_previous_command
+  switch (commandline -t)
+  case "!"
+    commandline -t $history[1]; commandline -f repaint
+  case "*"
+    commandline -i !
+  end
+end
+
+function __history_previous_command_arguments
+  switch (commandline -t)
+  case "!"
+    commandline -t ""
+    commandline -f history-token-search-backward
+  case "*"
+    commandline -i '$'
+  end
+end
+
+# KUBECTL completion
+#set $ZSH/oh-my-zsh.sh
+#set <(kubectl completion zsh)
+
+# PYENV
+set -x PATH "/home/jonatas/.pyenv/bin:$PATH"
+status --is-interactive; and . (pyenv init -|psub)
+status --is-interactive; and . (pyenv virtualenv-init -|psub)
+set -x VIRTUAL_ENV_DISABLE_PROMPT 1
+
+### ALIASES ###
+alias lf='ls -F'
+alias update='sudo apt update && sudo apt upgrade -y && sudo apt dist-upgrade -y'
+alias notebook='jupyter-notebook'
+alias metabase='gcloud compute ssh metabase --zone=southamerica-east1-b'
+alias vim='nvim'
+alias v='nvim'
+alias production='kubectl -n production get pods'
+alias staging='kubectl -n staging get pods'
+alias nodes='kubectl get nodes'
+alias ingress='kubectl -n production get ingress'
+alias svc='kubectl -n production get svc'
+alias namespace='kubectl get namespaces'
+alias ctags="`brew --prefix`/bin/ctags"
+alias klogs='kubectl logs -f'
+alias k='kubectl'
+alias cat='bat'
+alias ls='exa'
+
+### SETTING THE STARSHIP PROMPT ###
+starship init fish | source

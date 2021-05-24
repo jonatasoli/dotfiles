@@ -1,0 +1,5 @@
+
+xmonad.hs:287:17: error: parse error on input ‘,’
+    |
+287 |                 , logHook = dynamicLogWithPP $ namedScratchpadFilterOutWorkspacePP $ xmobarPP
+    |                 ^

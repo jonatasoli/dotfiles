@@ -56,10 +56,6 @@ if &history < 1000
   set history=1000
 endif
 
-" Coc
-set nobackup
-set nowritebackup
-
 if exists('&inccommand')
   set inccommand=split " Mostra um preview dos comandos
 endif
@@ -122,21 +118,21 @@ Plug 'ryanoasis/vim-devicons' "Icones pro nerdtree
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
 "Comentários
 Plug 'tpope/vim-commentary' "Permite fazer comentários com gc
 
-"Coc e extensões
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'voldikss/vim-floaterm'
-Plug 'dart-lang/dart-vim-plugin'
-Plug 'fisadev/vim-isort'
+" LSP
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/nvim-compe'
+Plug 'glepnir/lspsaga.nvim'
+Plug 'simrat39/symbols-outline.nvim'
 
 "Busca
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'stsewd/fzf-checkout.vim'
-Plug 'ctrlpvim/ctrlp.vim' "busca fzf
 Plug 'wincent/ferret' "Buscar e substituir em todos os arquivos
 
 "Utilitários
@@ -168,6 +164,16 @@ Plug 'majutsushi/tagbar'
 "" Color - Temas
 Plug 'dracula/vim', { 'as': 'dracula' }
 
+" Dicas
+Plug 'danth/pathfinder.vim'
+
+" Black
+Plug 'ambv/black'
+
+" Linguagens
+Plug 'rust-lang/rust.vim'
+Plug 'tweekmonster/gofmt.vim'
+
 call plug#end()
 
 "*****************************************************************************
@@ -182,6 +188,53 @@ let g:dracula_colorterm = 0
 "colorscheme dracula_pro
 colorscheme dracula
 hi Normal guibg=NONE ctermbg=NONE
+
+"*****************************************************************************
+"" LSP
+"*****************************************************************************
+
+set completeopt=menuone,noselect
+let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
+
+nnoremap <leader>vd :lua vim.lsp.buf.definition()<CR>
+nnoremap <leader>vi :lua vim.lsp.buf.implementation()<CR>
+nnoremap <leader>vsh :lua vim.lsp.buf.signature_help()<CR>
+nnoremap <leader>vrr :lua vim.lsp.buf.references()<CR>
+nnoremap <leader>vrn :lua vim.lsp.buf.rename()<CR>
+nnoremap <leader>vh :lua vim.lsp.buf.hover()<CR>
+nnoremap <leader>vca :lua vim.lsp.buf.code_action()<CR>
+nnoremap <leader>vsd :lua vim.lsp.util.show_line_diagnostics(); vim.lsp.util.show_line_diagnostics()<CR>
+nnoremap <leader>vn :lua vim.lsp.diagnostic.goto_next()<CR>
+nnoremap <leader>vll :call LspLocationList()<CR>
+
+augroup THE_LSP
+    autocmd!
+    autocmd! BufWrite,BufEnter,InsertLeave * :call LspLocationList()
+augroup END
+
+let g:compe = {}
+let g:compe.enabled = v:true
+let g:compe.autocomplete = v:true
+let g:compe.debug = v:false
+let g:compe.min_length = 1
+let g:compe.preselect = 'enable'
+let g:compe.throttle_time = 80
+let g:compe.source_timeout = 200
+let g:compe.incomplete_delay = 400
+let g:compe.max_abbr_width = 100
+let g:compe.max_kind_width = 100
+let g:compe.max_menu_width = 100
+let g:compe.documentation = v:true
+
+let g:compe.source = {}
+let g:compe.source.path = v:true
+let g:compe.source.buffer = v:true
+let g:compe.source.calc = v:true
+let g:compe.source.nvim_lsp = v:true
+let g:compe.source.nvim_lua = v:true
+let g:compe.source.vsnip = v:true
+
+inoremap <silent><expr> <CR>      compe#confirm('<CR>')
 
 "*****************************************************************************
 "" Abbreviations
@@ -231,6 +284,7 @@ nnoremap <silent> <F2> :NERDTreeFind<CR>
 
 "Telescope
 "" Find files using Telescope command-line sugar.
+nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
@@ -245,92 +299,8 @@ let g:tagbar_autofocus = 1
 " You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=300
 
-"*****************************************************************************
-"" Coc Settings
-"*****************************************************************************
-
-let g:coc_global_extensions = [ 
-        \ 'coc-json',
-        \ 'coc-python',
-        \ 'coc-snippets',
-        \ 'coc-vimlsp',
-        \ 'coc-css',
-        \ 'coc-cssmodules',
-        \ 'coc-emmet',
-        \ 'coc-eslint',
-        \ 'coc-floaterm',
-        \ 'coc-flutter',
-        \ 'coc-go',
-        \ 'coc-highlight',
-        \ 'coc-html',
-        \ 'coc-rls',
-        \ 'coc-rust-analyzer',
-        \ 'coc-tsserver',
-        \ 'coc-vetur',
-        \ 'coc-yaml',
-        \ 'coc-yank',
-        \ 'coc-pyright',
-        \ ]
-
-" Use tab for trigger completion with characters ahead and navigate.
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" isort
-let g:vim_isort_map = '<C-i>'
-
-
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
-
-" Float Term
-let g:floaterm_keymap_toggle = '<leader>to'
-let g:floaterm_keymap_next   = '<leader>tn'
-let g:floaterm_keymap_prev   = '<leader>tp'
-let g:floaterm_keymap_new    = '<leader>tt'
-
-" Floaterm
-let g:floaterm_gitcommit='floaterm'
-let g:floaterm_autoinsert=1
-let g:floaterm_width=0.8
-let g:floaterm_height=0.8
-let g:floaterm_wintitle=0
-let g:floaterm_autoclose=1
-hi Floaterm guibg=black
-
-nnoremap <leader>r :FloatermNew ranger<CR>
-nnoremap <leader>i :FloatermNew ipython<CR>
-
-"Flutter
-nnoremap <leader>fd :CocList FlutterDevices
-nnoremap <leader>fe :CocList FlutterEmulators
-nnoremap <leader>fr :CocList --input=flutter commands flutter.run
-
-" Go
-autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
+" Pathfinder
+noremap <leader>pe :PathfinderExplain<CR>
 
 " =====================================
 " vista.vim
