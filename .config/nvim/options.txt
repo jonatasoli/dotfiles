@@ -1,0 +1,43 @@
+
+    ruler = true,
+    number = true,
+    relativenumber = true,
+
+    foldmethod="indent",
+    foldlevel=20,
+
+    encoding="utf-8",
+    fileencoding="utf-8",
+    fileencodings="utf-8",
+
+    backspace="indent,eol,start",
+    smartindent=true,
+
+    tabstop=4,
+    softtabstop=0,
+    shiftwidth=4,
+    expandtab=true,
+    smarttab=true,
+
+    hidden=true,
+    hlsearch=true,
+    incsearch=true,
+    ignorecase=true,
+    smartcase=true,
+
+    fileformats="unix,dos,mac",
+
+    shell="/usr/bin/fish",
+
+    clipboard="unnamed,unnamedplus",
+
+    history=1000,
+
+    inccommand="split",
+
+    wrap= true,
+    wm=2,
+    textwidth=180,
+
+    colorcolumn = "80,88,120",
+    termguicolors = true,

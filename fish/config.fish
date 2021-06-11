@@ -14,14 +14,6 @@ set -x PARTYOU_CONFIG "docker_config_local_no_pass"
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 
 
-### SET AWS CONFIG
-set -x AWS_ACCESS_KEY_ID "ASIAUO3KDT464GTBNF7W"
-set -x AWS_SECRET_ACCESS_KEY "NwmNyJ3XVxpQFDawwiu6orpl45pcFHdwBlqPIk9C"
-set -x AWS_SESSION_TOKEN "IQoJb3JpZ2luX2VjEIz//////////wEaCXVzLWVhc3QtMSJHMEUCIH4P3YnGKt/zO0oJEksaiUfaQbF67B1egoh4tl/RgrWzAiEAtla6r+0opTu2QKjUUCfM0nTyaLXU42zbfjJy3DlWmbQqlAIIFRAAGgwzMDY3NzU4MjYyMzciDJz4hV4mHWziqIfJBSrxAZsJW1X47IIUjmXAYelCN/4cUi2wNmExdNIAvN+K3lcROCxsKtTffD5kq7ohoFRqsNBAOOrV0QNxnd3LaLBsygdHPsPv+YTLygrJupEdGtl684/wV3PDbNJVfK3B5UQAHI6P7LR1Ix8J/uNG8ag3cU7qEAWwaf7wbL0s7PHCWLTjzY5xpftTFj8mwMmTr8AUfsrvm6dg0Ivbmx3IzDeU3ZZJf+K3KF+KVoN12icpFkNjyAfAfasngYIlOzWAWFX3u2LyJ4Nd+iFY4vpx5YzkN835MbBwXDDrlrVqYwGlNsyLfmKx8V/LX/Fy5BvVmw6DvEUwsIXKhAY6nQFgutPX07nYbOmxFJ6nRonLHP4l5qmeTuN0ByI/D528WWYZLca2Oxhffnc9IRa3V0aJYWBD2YmbCL9yZCeTNkx0r05UGU/NMPMhVUT11EJtj4fsAfyDKgKW3V/g1XgIv/duSmw2a1HOWae4VlROXxwhnRN55qqOP9gZqfqaGhzM7CuL6H0c14hMOO08hATj2AF4RpTlHh32tJa4OKsK"
-
-### Vault Dev
-set -x VAULT_ADDR "http://54.166.204.210:8200"
-
 ### SET EITHER DEFAULT EMACS MODE OR VI MODE ###
 function fish_user_key_bindings
   # fish_default_key_bindings
@@ -62,13 +54,22 @@ end
 #set <(kubectl completion zsh)
 
 # PYENV
-set -x PATH "/home/jonatas/.pyenv/bin:$PATH"
-status --is-interactive; and . (pyenv init -|psub)
-status --is-interactive; and . (pyenv virtualenv-init -|psub)
+set -Ux PYENV_ROOT $HOME/.pyenv
+set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
+# set -x PATH "/home/rivendel/.pyenv/bin:$PATH"
+# status --is-interactive; and . (pyenv init -|psub)
+# status --is-interactive; and . (pyenv virtualenv-init -|psub)
+status is-login; and pyenv init --path | source
+pyenv init - | source
 set -x VIRTUAL_ENV_DISABLE_PROMPT 1
 
 # YARN
-set -x PATH "$PATH:/home/jonatas/.config/nvm/versions/node/v14.16.0/bin/yarn"
+set -x PATH "$PATH:/home/rivendel/.config/nvm/versions/node/v14.16.0/bin/yarn"
+# GO
+set -x PATH "$PATH:/usr/local/go/bin"
+
+# NPM
+set -x PATH "$PATH:/home/rivendel/.nvm/versions/node/v14.17.0/bin/npm"
 
 ### ALIASES ###
 alias lf='ls -F'
@@ -95,7 +96,9 @@ alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
 starship init fish | source
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/jonatas/workspace/google-cloud-sdk/path.fish.inc' ]; . '/home/jonatas/workspace/google-cloud-sdk/path.fish.inc'; end
+if [ -f '/home/rivendel/workspace/google-cloud-sdk/path.fish.inc' ]; . '/home/rivendel/workspace/google-cloud-sdk/path.fish.inc'; end
 
 #keychain
 # eval (keychain --eval --agents ssh -Q --quiet id_rsa --nogui)
+#set map
+eval (setxkbmap -model abnt -layout us -variant intl)
