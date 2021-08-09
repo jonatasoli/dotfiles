@@ -49,15 +49,15 @@ local function set_mappings()
     {"n", "<silent><leader>4", "<Cmd>TagbarToggle<CR>", opts },
 
     --LSP
-    {"n", "<leader>vd", "<Cmd>lua vim.lsp.buf.definition()<CR>", "opts" },
-    {"n", "<leader>vi", "<Cmd>lua vim.lsp.buf.implementation()<CR>", "opts" },
-    {"n", "<leader>vsh", "<Cmd>lua vim.lsp.buf.signature_help()<CR>", "opts" },
-    {"n", "<leader>vrr", "<Cmd>lua vim.lsp.buf.references()<CR>", "opts" },
-    {"n", "<leader>vrn", "<Cmd>lua vim.lsp.buf.rename()<CR>", "opts" },
-    {"n", "<leader>vh", "<Cmd>lua vim.lsp.buf.hover()<CR>", "opts" },
-    {"n", "<leader>vca", "<Cmd>lua vim.lsp.buf.code_action()<CR>", "opts" },
-    {"n", "<leader>vsd", "<Cmd>lua vim.lsp.util.show_line_diagnostics(); vim.lsp.util.show_line_diagnostics()<CR>", "opts" },
-    {"n", "<leader>vn", "<Cmd>lua vim.lsp.diagnostic.goto_next()<CR>", "opts" },
+    {"n", "<leader>vd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts },
+    {"n", "<leader>vi", "<Cmd>lua vim.lsp.buf.implementation()<CR>", opts },
+    {"n", "<leader>vsh", "<Cmd>lua vim.lsp.buf.signature_help()<CR>", opts },
+    {"n", "<leader>vrr", "<Cmd>lua vim.lsp.buf.references()<CR>", opts },
+    {"n", "<leader>vrn", "<Cmd>lua vim.lsp.buf.rename()<CR>", opts },
+    {"n", "<leader>vh", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts },
+    {"n", "<leader>vca", "<Cmd>lua vim.lsp.buf.code_action()<CR>", opts },
+    {"n", "<leader>vsd", "<Cmd>lua vim.lsp.util.show_line_diagnostics(); vim.lsp.util.show_line_diagnostics()<CR>", opts },
+    {"n", "<leader>vn", "<Cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts },
   }
 
   for _, val in pairs(mappings) do
@@ -96,9 +96,9 @@ local function set_options()
 
     fileformats="unix,dos,mac",
 
-    shell="/usr/bin/fish",
+    shell="/usr/bin/bash",
 
-    clipboard="unnamed,unnamedplus",
+    clipboard="unnamedplus",
 
     history=1000,
 

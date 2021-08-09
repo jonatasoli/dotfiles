@@ -184,10 +184,6 @@ local function setup_servers()
   local required_servers = {
     "css",
     "dockerfile",
-    "go",
-    "cpp",
-    "graphql",
-    "java",
     "json",
     "lua",
     "python",
@@ -195,7 +191,6 @@ local function setup_servers()
     "typescript",
     "vim",
     "vue",
-    "yaml",
   }
   for _, svr in pairs(required_servers) do
     if not vim.tbl_contains(installed_servers, svr) then
