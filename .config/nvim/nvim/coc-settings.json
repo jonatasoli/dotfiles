@@ -1,0 +1,27 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": [
+    "dart",
+    "go",
+    "json",
+    "yaml",
+    "vue",
+    "js"
+  ],
+  // python config
+  "python.linting.enabled": true,
+  "python.linting.pep8Enabled": true,
+  "python.linting.pep8Args": ["--max-line-length=180"],
+  // flutter config
+  "flutter.trace.server": "verbose",
+  "flutter.lsp.initialization.closingLabels": true,
+  // Go
+  "go.enable": true,
+  // HTML
+  "html.validate.scripts": true,
+  "html.validate.styles": true,
+  "html.autoClosingTags": true,
+  // Yaml
+  "yaml.format.enable": true,
+  "explorer.icon.enableVimDevicons": true,
+  "explorer.icon.enableNerdfont": true
+}
