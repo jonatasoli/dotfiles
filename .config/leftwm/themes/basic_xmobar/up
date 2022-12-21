@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+export SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+
+
+#down the last running theme
+if [ -f "/tmp/leftwm-theme-down" ]; then
+    /tmp/leftwm-theme-down
+    rm /tmp/leftwm-theme-down
+fi
+ln -s $SCRIPTPATH/down /tmp/leftwm-theme-down
+
+
+#boot compton or picom if it exists
+# killall conky
+# killall trayer
+lxsession &
+picom &
+nm-applet &
+volumeicon &
+
+#set the theme.ron config
+leftwm-command "LoadTheme $SCRIPTPATH/theme.ron"
+
+
+# SET WALLPAPER
+# Uncomment only ONE of the following FOUR lines, depending on which wallpaper setter you use.
+# xargs xwallpaper --stretch < ~/.cache/wall &
+# ~/.fehbg &"  -- set last saved feh wallpaper
+# nitrogen --restore &"   -- if you prefer nitrogen to feh
+feh --randomize --bg-fill /home/feanor/wallpappers/*
+trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 --tint 0x282c34 --height 22 &
+
+
+
+index=0
+leftwm-state -q -n -t $SCRIPTPATH/sizes.liquid | sed -r '/^\s*$/d' | while read size
+do
+   leftwm-state -w $index -t $SCRIPTPATH/template.liquid | xmobar -p "$size" $SCRIPTPATH/xmobar-config.hs --alpha=230 &
+   let index=index+1
+done
+
+
+

@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+
+#set background
+if [ -x "$(command -v feh)" ]; then
+  feh --bg-scale $SCRIPTPATH/reset.jpg
+fi
+
+leftwm-command "UnloadTheme"
+
+
+ps -alh | grep xmobar_control_script | awk '{print $3}' | xargs kill
+
+killall picom
+killall trayer
+killall xmobar
+killall nm-applet
+killall volumeicon
+
