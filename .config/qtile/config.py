@@ -12,6 +12,11 @@ from typing import List  # noqa: F401
 mod = "mod4"                                     # Sets mod key to SUPER/WINDOWS
 my_term = "kitty"                             # My terminal of choice
 
+if qtile.core.name == "wayland":
+    term = my_term
+elif qtile.core.name == "x11":
+    term = my_term
+
 keys = [
          ### The essentials
          Key([mod], "Return",
@@ -126,9 +131,9 @@ group_names = [("MEN", {'layout': 'monadtall'}),
                ("DEV", {'layout': 'monadtall'}),
                ("DB", {'layout': 'monadtall'}),
                ("IDE", {'layout': 'floating'}),
-               ("XMD", {'layout': 'monotall'}),
+               ("XMD", {'layout': 'monadtall'}),
                ("OBS", {'layout': 'monadtall'}),
-               ("ANY", {'layout': 'monotall'}),
+               ("ANY", {'layout': 'monadtall'}),
                ("MUS", {'layout': 'floating'})]
 
 groups = [Group(name, **kwargs) for name, kwargs in group_names]
