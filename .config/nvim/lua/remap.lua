@@ -5,8 +5,8 @@ local g = vim.g
 
 local function set_globals()
   g.mapleader = " "
-  g.python3_host_prog = "/home/rivendel/.pyenv/shims/python"
-  g.python_host_prog = "/home/rivendel/.pyenv/shims/python"
+  g.python3_host_prog = "/home/feanor/.pyenv/shims/python"
+  g.python_host_prog = "/home/feanor/.pyenv/shims/python"
 end
 
 local function set_mappings()
@@ -14,14 +14,7 @@ local function set_mappings()
   local opts = {noremap = true}
   local mappings = {
 
-    {"n", "∆", "<Cmd>m .+1<CR>==", opts},
-    {"n", "˚", "<Cmd>m .-2<CR>==", opts},
-    {"i", "∆", "<Esc><Cmd>m .+1<CR>==gi", opts},
-    {"i", "˚", "<Esc><Cmd>m .-2<CR>==gi", opts},
-    {"v", "∆", "<Cmd>m '>+1<CR>gv=gv", opts},
-    {"v", "˚", "<Cmd>m '<-2<CR>gv=gv", opts},
-    {"n", "<leader>,", "<Cmd>nohl<CR>", opts},
-    {"n", "<leader>ls", "'0<CR>", opts},
+    {"n", "<leader>pv", "<Cmd>Ex<CR>", opts},
 
     -- buffer and aplist navigation
     {"n", "<leader>h", "<C-w>h<CR>", opts},
@@ -48,16 +41,6 @@ local function set_mappings()
     -- Tagbar
     {"n", "<silent><leader>4", "<Cmd>TagbarToggle<CR>", opts },
 
-    --LSP
-    {"n", "<leader>vd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts },
-    {"n", "<leader>vi", "<Cmd>lua vim.lsp.buf.implementation()<CR>", opts },
-    {"n", "<leader>vsh", "<Cmd>lua vim.lsp.buf.signature_help()<CR>", opts },
-    {"n", "<leader>vrr", "<Cmd>lua vim.lsp.buf.references()<CR>", opts },
-    {"n", "<leader>vrn", "<Cmd>lua vim.lsp.buf.rename()<CR>", opts },
-    {"n", "<leader>vh", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts },
-    {"n", "<leader>vca", "<Cmd>lua vim.lsp.buf.code_action()<CR>", opts },
-    {"n", "<leader>vsd", "<Cmd>lua vim.lsp.util.show_line_diagnostics(); vim.lsp.util.show_line_diagnostics()<CR>", opts },
-    {"n", "<leader>vn", "<Cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts },
   }
 
   for _, val in pairs(mappings) do
@@ -161,8 +144,6 @@ local function set_options()
   augroup END
   ]]
   )
-
-  vim.cmd([[colorscheme dracula]])
 
   vim.cmd([[command! FixWhitespace :%s/\s\+$//e ]])
 
