@@ -434,7 +434,7 @@ def init_widgets_screen2():
 
 def init_screens():
     return [
-        Screen(top=bar.Bar(widgets=init_widgets_screen1(), margin=[5, 8, 0, 8], opacity=1.0, size=20)),
+#        Screen(top=bar.Bar(widgets=init_widgets_screen1(), margin=[5, 8, 0, 8], opacity=1.0, size=20)),
         Screen(top=bar.Bar(widgets=init_widgets_screen2(), margin=[5, 8, 0, 8], opacity=1.0, size=20))
     ]
 

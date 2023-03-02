@@ -7,5 +7,6 @@ volumeicon &
 nm-applet &
 blueman-applet &
 xautolock -time 60 -locker slock &
+udiskie &
 # internxt-drive &
 
