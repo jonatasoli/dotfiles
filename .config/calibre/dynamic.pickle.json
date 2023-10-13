@@ -1,0 +1,29 @@
+{
+  "add books dialog dir": "/home/feanor/Documents/Documents/Backup/Livros",
+  "add books dialog dir-last-used-filter-spec-all-files": false,
+  "database location dialog": "/home/feanor/Documents/Documents/Calibre Library",
+  "library_delete_books_again": false,
+  "notified-version-updates": {
+    "__class__": "set",
+    "__value__": [
+      "6.21",
+      "6.22",
+      "6.20",
+      "6.19",
+      "6.17"
+    ]
+  },
+  "recursive book import root dir dialog": "/home/feanor/Documents",
+  "sort_history": [
+    [
+      "timestamp",
+      false
+    ],
+    [
+      "timestamp",
+      false
+    ]
+  ],
+  "welcome_wizard_device": "default",
+  "welcome_wizard_was_run": true
+}

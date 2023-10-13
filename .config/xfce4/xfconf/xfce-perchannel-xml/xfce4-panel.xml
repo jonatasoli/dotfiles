@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xfce4-panel" version="1.0">
+  <property name="configver" type="int" value="2"/>
+  <property name="panels" type="array">
+    <value type="int" value="1"/>
+    <property name="dark-mode" type="bool" value="true"/>
+    <property name="panel-1" type="empty">
+      <property name="position" type="string" value="p=6;x=0;y=0"/>
+      <property name="length" type="double" value="100"/>
+      <property name="position-locked" type="bool" value="true"/>
+      <property name="icon-size" type="uint" value="24"/>
+      <property name="size" type="uint" value="48"/>
+      <property name="plugin-ids" type="array">
+        <value type="int" value="7"/>
+        <value type="int" value="1"/>
+        <value type="int" value="4"/>
+        <value type="int" value="11"/>
+        <value type="int" value="2"/>
+        <value type="int" value="5"/>
+        <value type="int" value="6"/>
+        <value type="int" value="8"/>
+        <value type="int" value="9"/>
+        <value type="int" value="10"/>
+        <value type="int" value="13"/>
+        <value type="int" value="12"/>
+        <value type="int" value="3"/>
+        <value type="int" value="14"/>
+      </property>
+      <property name="enter-opacity" type="uint" value="70"/>
+      <property name="leave-opacity" type="uint" value="70"/>
+      <property name="mode" type="uint" value="0"/>
+      <property name="length-adjust" type="bool" value="true"/>
+    </property>
+  </property>
+  <property name="plugins" type="empty">
+    <property name="plugin-2" type="string" value="tasklist">
+      <property name="grouping" type="uint" value="1"/>
+    </property>
+    <property name="plugin-3" type="string" value="separator">
+      <property name="expand" type="bool" value="false"/>
+      <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="plugin-4" type="string" value="pager">
+      <property name="rows" type="uint" value="1"/>
+      <property name="wrap-workspaces" type="bool" value="true"/>
+      <property name="workspace-scrolling" type="bool" value="true"/>
+    </property>
+    <property name="plugin-5" type="string" value="separator">
+      <property name="style" type="uint" value="0"/>
+      <property name="expand" type="bool" value="true"/>
+    </property>
+    <property name="plugin-6" type="string" value="systray">
+      <property name="square-icons" type="bool" value="true"/>
+      <property name="known-legacy-items" type="array">
+        <value type="string" value="upwork"/>
+        <value type="string" value="wi-fi network connection “magentawlan-32v1” active: magentawlan-32v1 (57%)"/>
+        <value type="string" value="wi-fi network connection “magentawlan-32v1” active: magentawlan-32v1 (61%)"/>
+        <value type="string" value="wi-fi network connection “magentawlan-32v1” active: magentawlan-32v1 (60%)"/>
+        <value type="string" value="wi-fi network connection “magentawlan-32v1” active: magentawlan-32v1 (62%)"/>
+        <value type="string" value="albert"/>
+        <value type="string" value="wi-fi network connection “magentawlan-32v1” active: magentawlan-32v1 (67%)"/>
+        <value type="string" value="flameshot"/>
+        <value type="string" value="wi-fi network connection “magentawlan-32v1” active: magentawlan-32v1 (74%)"/>
+        <value type="string" value="wi-fi network connection “magentawlan-32v1” active: magentawlan-32v1 (68%)"/>
+        <value type="string" value="tuxedo-control-center"/>
+        <value type="string" value="ulauncher"/>
+        <value type="string" value="wi-fi network connection “magentawlan-32v1” active: magentawlan-32v1 (58%)"/>
+        <value type="string" value="wi-fi network connection “magentawlan-32v1” active: magentawlan-32v1 (72%)"/>
+        <value type="string" value="wi-fi network connection “magentawlan-32v1” active: magentawlan-32v1 (69%)"/>
+        <value type="string" value="wi-fi network connection “magentawlan-32v1” active: magentawlan-32v1 (70%)"/>
+        <value type="string" value="networkmanager applet"/>
+        <value type="string" value="clipman"/>
+        <value type="string" value="wi-fi network connection “magentawlan-32v1” active: magentawlan-32v1 (63%)"/>
+        <value type="string" value="wi-fi network connection “magentawlan-32v1” active: magentawlan-32v1 (59%)"/>
+        <value type="string" value="wi-fi network connection “magentawlan-32v1” active: magentawlan-32v1 (56%)"/>
+        <value type="string" value="no network connection"/>
+      </property>
+      <property name="known-items" type="array">
+        <value type="string" value="obs"/>
+        <value type="string" value="systray"/>
+        <value type="string" value="Seafile Client"/>
+        <value type="string" value="Upwork1"/>
+        <value type="string" value="steam"/>
+        <value type="string" value="icedrive1"/>
+        <value type="string" value="Zeal"/>
+        <value type="string" value="albert"/>
+        <value type="string" value="flameshot"/>
+        <value type="string" value="chrome_status_icon_1"/>
+        <value type="string" value="tuxedo-control-center1"/>
+        <value type="string" value="ulauncher"/>
+        <value type="string" value="Nextcloud"/>
+        <value type="string" value="toolbox"/>
+        <value type="string" value="blueman"/>
+      </property>
+      <property name="icon-size" type="int" value="16"/>
+    </property>
+    <property name="plugin-8" type="string" value="pulseaudio">
+      <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
+      <property name="show-notifications" type="bool" value="true"/>
+      <property name="mpris-players" type="string" value="chromium.instance10040;chromium.instance1173323;chromium.instance132162;chromium.instance136581;chromium.instance137167;chromium.instance150622;chromium.instance19390;chromium.instance25005;chromium.instance3179;chromium.instance40331;chromium.instance41745;chromium.instance4388;chromium.instance47812;chromium.instance6469;chromium.instance6677;chromium.instance79170;chromium.instance8821;firefox.instance1250753;firefox.instance146865;firefox.instance1566192;firefox.instance1583482;firefox.instance163043;firefox.instance2328;firefox.instance2416;firefox.instance2898910;firefox.instance2941914;firefox.instance2955141;firefox.instance319021;firefox.instance3325023;firefox.instance3638;firefox.instance405395;firefox.instance4185;firefox.instance4306;firefox.instance4415;firefox.instance4461;firefox.instance4499;firefox.instance4561;firefox.instance4666;firefox.instance5197;firefox.instance5247;firefox.instance5301;firefox.instance5490;firefox.instance5682;firefox.instance5908;firefox.instance662524;firefox.instance76978;spotify"/>
+      <property name="known-players" type="string" value="anytype;Chromium;Firefox;Firefox Web Browser;rambox"/>
+    </property>
+    <property name="plugin-9" type="string" value="power-manager-plugin"/>
+    <property name="plugin-10" type="string" value="notification-plugin"/>
+    <property name="plugin-11" type="string" value="separator">
+      <property name="style" type="uint" value="0"/>
+      <property name="expand" type="bool" value="false"/>
+    </property>
+    <property name="plugin-12" type="string" value="clock">
+      <property name="timezone" type="string" value="Europe/Berlin"/>
+      <property name="mode" type="uint" value="2"/>
+      <property name="digital-layout" type="uint" value="3"/>
+    </property>
+    <property name="plugin-13" type="string" value="separator">
+      <property name="style" type="uint" value="0"/>
+      <property name="expand" type="bool" value="false"/>
+    </property>
+    <property name="plugin-14" type="string" value="actions">
+      <property name="items" type="array">
+        <value type="string" value="-lock-screen"/>
+        <value type="string" value="-switch-user"/>
+        <value type="string" value="-separator"/>
+        <value type="string" value="-suspend"/>
+        <value type="string" value="-hibernate"/>
+        <value type="string" value="-hybrid-sleep"/>
+        <value type="string" value="-separator"/>
+        <value type="string" value="-shutdown"/>
+        <value type="string" value="-restart"/>
+        <value type="string" value="-separator"/>
+        <value type="string" value="+logout"/>
+        <value type="string" value="-logout-dialog"/>
+      </property>
+      <property name="appearance" type="uint" value="0"/>
+    </property>
+    <property name="plugin-1" type="string" value="separator"/>
+    <property name="plugin-7" type="string" value="whiskermenu">
+      <property name="launcher-show-description" type="bool" value="false"/>
+      <property name="launcher-show-tooltip" type="bool" value="false"/>
+      <property name="category-show-name" type="bool" value="false"/>
+      <property name="view-mode" type="int" value="0"/>
+      <property name="favorites-in-recent" type="bool" value="true"/>
+      <property name="command-switchuser" type="string" value="dm-tool switch-to-greeter"/>
+      <property name="favorites" type="array">
+        <value type="string" value="xfce4-web-browser.desktop"/>
+        <value type="string" value="xfce4-mail-reader.desktop"/>
+        <value type="string" value="xfce4-file-manager.desktop"/>
+        <value type="string" value="xfce4-terminal-emulator.desktop"/>
+      </property>
+      <property name="recent" type="array">
+        <value type="string" value="albert.desktop"/>
+        <value type="string" value="libreoffice-impress.desktop"/>
+        <value type="string" value="pcmanfm.desktop"/>
+        <value type="string" value="chromium.desktop"/>
+        <value type="string" value="libreoffice-writer.desktop"/>
+        <value type="string" value="firefox.desktop"/>
+        <value type="string" value="spotify.desktop"/>
+        <value type="string" value="homebank.desktop"/>
+        <value type="string" value="io.dbeaver.DBeaver.desktop"/>
+      </property>
+    </property>
+    <property name="clipman" type="empty">
+      <property name="tweaks" type="empty">
+        <property name="skip-action-on-key-down" type="bool" value="false"/>
+      </property>
+    </property>
+  </property>
+</channel>

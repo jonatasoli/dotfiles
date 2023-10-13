@@ -1,0 +1,146 @@
+{
+  "geometry-of-main_window_geometry": {
+    "frame_geometry": {
+      "height": 1273,
+      "width": 2101,
+      "x": 0,
+      "y": 40
+    },
+    "full_screened": false,
+    "geometry": {
+      "height": 1250,
+      "width": 2101,
+      "x": 0,
+      "y": 63
+    },
+    "maximized": true,
+    "normal_geometry": {
+      "height": 1250,
+      "width": 2101,
+      "x": 0,
+      "y": 63
+    },
+    "qt": {
+      "__class__": "bytearray",
+      "__value__": "AdnQywADAAAAAAAAAAAAKAAACDQAAAUgAAAAAAAAAD8AAAg0AAAFIAAAAAACAAAACDUAAAAAAAAAPwAACDQAAAUg"
+    },
+    "screen": {
+      "depth": 24,
+      "device_pixel_ratio": 1.21875,
+      "geometry_in_logical_pixels": {
+        "height": 1313,
+        "width": 2101,
+        "x": 0,
+        "y": 0
+      },
+      "index_in_screens_list": 0,
+      "manufacturer": "BOE",
+      "model": "",
+      "name": "eDP-1",
+      "serial": "",
+      "size_in_logical_pixels": {
+        "height": 1313,
+        "width": 2101
+      },
+      "virtual_geometry": {
+        "height": 1313,
+        "width": 2101,
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
+  "main_window_state": {
+    "__class__": "bytearray",
+    "__value__": "AAAA/wAAAAH9AAAAAgAAAAAAAAEAAAAE4vwCAAAAAvsAAAAQAHQAbwBjAC0AZABvAGMAawAAAAAAAAAE4gAAAIoA////+wAAABYAcwBlAGEAcgBjAGgALQBkAG8AYwBrAAAAAAD/////AAAAmgD///8AAAABAAABDgAABOL8AgAAAAT7AAAAFgBsAG8AbwBrAHUAcAAtAGQAbwBjAGsAAAAAAP////8AAACEAP////sAAAAcAGIAbwBvAGsAbQBhAHIAawBzAC0AZABvAGMAawEAAAAAAAACfAAAAPIA////+wAAABwAaQBuAHMAcABlAGMAdABvAHIALQBkAG8AYwBrAAAAAAD/////AAAAFAD////7AAAAHgBoAGkAZwBoAGwAaQBnAGgAdABzAC0AZABvAGMAawEAAAKCAAACYAAAANIA////AAAHIQAABOIAAAAEAAAABAAAAAgAAAAI/AAAAAEAAAAAAAAAAQAAAB4AYQBjAHQAaQBvAG4AcwBfAHQAbwBvAGwAYgBhAHICAAAAAP////8AAAAAAAAAAA=="
+  },
+  "old_prefs_migrated": true,
+  "session_data": {
+    "base_font_size": 20,
+    "controls_help_shown_count": 2,
+    "standalone_font_settings": {},
+    "standalone_misc_settings": {
+      "remember_last_read": true,
+      "remember_window_geometry": false,
+      "save_annotations_in_ebook": true,
+      "singleinstance": false
+    },
+    "standalone_recently_opened": [
+      {
+        "authors": [
+          "ANA CLAUDIA"
+        ],
+        "key": "/home/feanor/TABELA BRASIL OFICIAL.pdf",
+        "pathtoebook": "/home/feanor/TABELA BRASIL OFICIAL.pdf",
+        "timestamp": "2023-06-26T07:45:04.159Z",
+        "title": "TABELA BRASIL OFICIAL"
+      },
+      {
+        "key": "/home/feanor/Fatura.pdf",
+        "pathtoebook": "/home/feanor/Fatura.pdf",
+        "timestamp": "2023-06-26T07:12:35.899Z",
+        "title": "Fatura"
+      },
+      {
+        "authors": [
+          "Herbert Wolverson"
+        ],
+        "key": "/home/feanor/Documents/Documents/Calibre Library/Herbert Wolverson/Hands-on Rust (56)/Hands-on Rust - Herbert Wolverson.epub",
+        "pathtoebook": "/home/feanor/Documents/Documents/Calibre Library/Herbert Wolverson/Hands-on Rust (56)/Hands-on Rust - Herbert Wolverson.epub",
+        "timestamp": "2023-06-21T10:44:30.899Z",
+        "title": "Hands-on Rust"
+      },
+      {
+        "key": "/home/feanor/Documents/Documents/Calibre Library/Unknown/Organization (22)/Organization - Unknown.md",
+        "pathtoebook": "/home/feanor/Documents/Documents/Calibre Library/Unknown/Organization (22)/Organization - Unknown.md",
+        "timestamp": "2023-06-16T07:30:50.315Z",
+        "title": "Organization"
+      },
+      {
+        "key": "/home/feanor/Documents/Documents/Calibre Library/Unknown/Crontab com rclone (23)/Crontab com rclone - Unknown.md",
+        "pathtoebook": "/home/feanor/Documents/Documents/Calibre Library/Unknown/Crontab com rclone (23)/Crontab com rclone - Unknown.md",
+        "timestamp": "2023-06-16T07:30:25.766Z",
+        "title": "Crontab com rclone"
+      },
+      {
+        "authors": [
+          "Luca Palmieri"
+        ],
+        "key": "/home/feanor/Documents/Documents/Calibre Library/Luca Palmieri/Zero To Production In Rust (5)/Zero To Production In Rust - Luca Palmieri.epub",
+        "pathtoebook": "/home/feanor/Documents/Documents/Calibre Library/Luca Palmieri/Zero To Production In Rust (5)/Zero To Production In Rust - Luca Palmieri.epub",
+        "timestamp": "2023-06-08T13:31:26.117Z",
+        "title": "Zero To Production In Rust"
+      },
+      {
+        "authors": [
+          "Herbert Wolverson"
+        ],
+        "key": "/home/feanor/Documents/Documents/Calibre Library/Herbert Wolverson/Hands-on Rust (8)/Hands-on Rust - Herbert Wolverson.epub",
+        "pathtoebook": "/home/feanor/Documents/Documents/Calibre Library/Herbert Wolverson/Hands-on Rust (8)/Hands-on Rust - Herbert Wolverson.epub",
+        "timestamp": "2023-06-06T08:04:19.522Z",
+        "title": "Hands-on Rust"
+      },
+      {
+        "key": "/home/feanor/Downloads/Create Order flow.pdf",
+        "pathtoebook": "/home/feanor/Downloads/Create Order flow.pdf",
+        "timestamp": "2023-06-05T14:58:14.437Z",
+        "title": "Create Order flow"
+      },
+      {
+        "key": "/home/feanor/NOVO%20SUPORTE%20FRAGAX.pdf",
+        "pathtoebook": "/home/feanor/NOVO%20SUPORTE%20FRAGAX.pdf",
+        "timestamp": "2023-06-02T12:03:59.865Z",
+        "title": "NOVO SUPORTE FRAGAX"
+      },
+      {
+        "authors": [
+          "David MacLeod"
+        ],
+        "key": "/home/feanor/Documents/Documents/Calibre Library/David MacLeod/Learn Rust in a Month of Lunches MEAP v01 (13)/Learn Rust in a Month of Lunches MEAP v01 - David MacLeod.epub",
+        "pathtoebook": "/home/feanor/Documents/Documents/Calibre Library/David MacLeod/Learn Rust in a Month of Lunches MEAP v01 (13)/Learn Rust in a Month of Lunches MEAP v01 - David MacLeod.epub",
+        "timestamp": "2023-04-26T12:36:30.504Z",
+        "title": "Learn Rust in a Month of Lunches MEAP v01"
+      }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "disabled_plugins": {
+    "__class__": "set",
+    "__value__": [
+      "Big Book Search"
+    ]
+  },
+  "enabled_plugins": {
+    "__class__": "set",
+    "__value__": [
+      "Amazon IN Kindle"
+    ]
+  },
+  "filetype_mapping": {},
+  "plugin_customization": {},
+  "plugins": {}
+}

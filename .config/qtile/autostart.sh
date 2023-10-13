@@ -8,5 +8,10 @@ nm-applet &
 blueman-applet &
 xautolock -time 60 -locker slock &
 udiskie &
-# internxt-drive &
-
+xfce4-clipman &
+mate-power-manger &
+flameshot &
+if [ -z "$SSH_AUTH_SOCK" ]; then
+    # Inicie o ssh-agent se ele não estiver em execução
+    eval "$(ssh-agent -s)"
+fi

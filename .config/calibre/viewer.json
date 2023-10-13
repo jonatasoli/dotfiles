@@ -1,0 +1,60 @@
+{
+  "geometry-of-print-to-pdf-geometry": {
+    "frame_geometry": {
+      "height": 354,
+      "width": 501,
+      "x": 100,
+      "y": 290
+    },
+    "full_screened": false,
+    "geometry": {
+      "height": 329,
+      "width": 497,
+      "x": 102,
+      "y": 313
+    },
+    "maximized": false,
+    "normal_geometry": {
+      "height": 329,
+      "width": 497,
+      "x": 102,
+      "y": 313
+    },
+    "qt": {
+      "__class__": "bytearray",
+      "__value__": "AdnQywADAAAAAABkAAABIgAAAlgAAAKDAAAAZgAAATkAAAJWAAACgQAAAAAAAAAACDUAAABmAAABOQAAAlYAAAKB"
+    },
+    "screen": {
+      "depth": 24,
+      "device_pixel_ratio": 1.21875,
+      "geometry_in_logical_pixels": {
+        "height": 1313,
+        "width": 2101,
+        "x": 0,
+        "y": 0
+      },
+      "index_in_screens_list": 0,
+      "manufacturer": "BOE",
+      "model": "",
+      "name": "eDP-1",
+      "serial": "",
+      "size_in_logical_pixels": {
+        "height": 1313,
+        "width": 2101
+      },
+      "virtual_geometry": {
+        "height": 1313,
+        "width": 2101,
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
+  "print-to-pdf-bottom-margin": 1.0,
+  "print-to-pdf-left-margin": 1.0,
+  "print-to-pdf-page-numbers": true,
+  "print-to-pdf-page-size": "a4",
+  "print-to-pdf-right-margin": 1.0,
+  "print-to-pdf-show-file": true,
+  "print-to-pdf-top-margin": 1.0
+}

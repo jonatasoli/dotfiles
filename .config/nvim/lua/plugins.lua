@@ -24,7 +24,8 @@ return require('packer').startup(function(use)
   })
   use {
     'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+
   }
   use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
   use "lukas-reineke/indent-blankline.nvim"
@@ -52,6 +53,7 @@ return require('packer').startup(function(use)
         {'hrsh7th/cmp-path'},         -- Optional
         {'saadparwaiz1/cmp_luasnip'}, -- Optional
         {'hrsh7th/cmp-nvim-lua'},     -- Optional
+        {'hrsh7th/cmp-copilot'},      -- Optional
 
         -- Snippets
         {'L3MON4D3/LuaSnip'},             -- Required
@@ -62,19 +64,20 @@ return require('packer').startup(function(use)
   use('nvim-treesitter/playground')
 
   -- Git
-  use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
+  use { 'NeogitOrg/neogit', requires = 'nvim-lua/plenary.nvim' }
   use('mbbill/undotree')
   use {
     'pwntester/octo.nvim',
     requires = {
       'nvim-lua/plenary.nvim',
       'nvim-telescope/telescope.nvim',
-      'kyazdani42/nvim-web-devicons',
+      'nvim-tree/nvim-web-devicons',
     },
     config = function ()
       require"octo".setup()
     end
   }
+  use "sindrets/diffview.nvim"
 
   -- Commentaries
   use { 'tpope/vim-commentary' }
@@ -90,5 +93,19 @@ return require('packer').startup(function(use)
       vim.o.timeoutlen = 300
     end
   }
+
+  -- Copilot
+  use({ "github/copilot.vim" })
+  use({
+  	"jackMort/ChatGPT.nvim",
+  	cond = function()
+  		return os.getenv("OPENAI_API_KEY") ~= nil
+  	end,
+  	requires = {
+  		"MunifTanjim/nui.nvim",
+  		"nvim-lua/plenary.nvim",
+  		"nvim-telescope/telescope.nvim",
+  	},
+  })
 
 end)
