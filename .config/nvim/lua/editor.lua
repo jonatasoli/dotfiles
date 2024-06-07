@@ -5,8 +5,10 @@ local g = vim.g
 
 local function set_globals()
   g.mapleader = " "
+  g.mapleader = " "
   g.python3_host_prog = "/home/feanor/.pyenv/shims/python"
   g.python_host_prog = "/home/feanor/.pyenv/shims/python"
+
 end
 
 local function set_mappings()
