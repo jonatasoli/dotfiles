@@ -12,7 +12,6 @@ return {
       "saadparwaiz1/cmp_luasnip",
     },
     config = function()
-    require "snippets"
 
     vim.opt.completeopt = { "menu", "menuone", "noselect" }
     vim.opt.shortmess:append "c"
@@ -28,10 +27,11 @@ return {
         { name = "cody" },
         { name = "path" },
         { name = "buffer" },
+        { name = "luasnip" },
       },
       mapping = {
         ["<Tab>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
-        ["S-<Tab>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
+        ["<S-Tab>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
         ["<CR>"] = cmp.mapping(
           cmp.mapping.confirm {
             behavior = cmp.ConfirmBehavior.Insert,
@@ -44,7 +44,7 @@ return {
       -- Enable luasnip to handle snippet expansion for nvim-cmp
       snippet = {
         expand = function(args)
-          vim.snippet.expand(args.body)
+          require('luasnip').lsp_expand(args.body)
         end,
       },
     }

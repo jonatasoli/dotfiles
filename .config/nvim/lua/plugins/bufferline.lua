@@ -1,7 +1,7 @@
 return {
   {
     "akinsho/bufferline.nvim",
-    version = "v4.*",
+    version = "*",
     dependencies = "nvim-tree/nvim-web-devicons",
     config = function()
       require('bufferline').setup {
@@ -29,7 +29,6 @@ return {
           },
           color_icons = true, -- whether or not to add the filetype icon highlights
           show_buffer_icons = true, -- disable filetype icons for buffers
-          show_buffer_default_icon = true, -- whether or not an unrecognised filetype should show a default icon
           show_tab_indicators = true,
           separator_style = "thick",
           sort_by = 'insert_at_end',
