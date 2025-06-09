@@ -18,7 +18,7 @@ history = 100_000
 multiplier = 3
 
 [font]
-size = 18 # 35 # 18
+size = 20 # 35 # 18
 
   [font.normal]
   family = "mononoki Nerd Font"

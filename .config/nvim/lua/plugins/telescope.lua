@@ -33,17 +33,10 @@ return {
       vim.keymap.set("n", "<leader>fg", builtin.git_files)
       vim.keymap.set("n", "<leader>ft", builtin.help_tags)
       vim.keymap.set("n", "<leader>f/", builtin.live_grep)
-      vim.keymap.set("n", "<leader>fb", builtin.current_buffer_fuzzy_find)
+      vim.keymap.set("n", "<leader>fb", builtin.buffers)
       vim.keymap.set("n", "<leader>fw", builtin.grep_string)
-      vim.keymap.set("n", "<leader>fa", function()
-        ---@diagnostic disable-next-line: param-type-mismatch
-        builtin.find_files { cwd = vim.fs.joinpath(vim.fn.stdpath "data", "lazy") }
-      end)
       vim.keymap.set("n", "<leader>en", function()
         builtin.find_files { cwd = vim.fn.stdpath "config" }
-      end)
-      vim.keymap.set("n", "<leader>eo", function()
-        builtin.find_files { cwd = "~/.config/nvim-backup/" }
       end)
     end,
    },

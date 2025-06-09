@@ -1,123 +1,120 @@
-// -*- mode: json -*-
-
 {
-	"layer": "top",
-	"position": "bottom",
+    "layer": "top",
+    "position": "top",
+    "height": 42,
+    "margin": "0",
+    "modules-left": [
+        "hyprland/workspaces",
+        "tray"
+    ],
+    "modules-center": [
+        "clock",
+        "custom/notification"
+    ],
+    "modules-right": [
+        "cpu",
+        "memory",
+        "disk",
+        "pulseaudio",
+        "network",
+        "bluetooth",
+        "custom/power"
+    ],
 
-	"modules-left": [
-		"sway/workspaces",
-		"custom/right-arrow-dark"
-	],
-	"modules-center": [
-		"custom/left-arrow-dark",
-		"clock#1",
-		"custom/left-arrow-light",
-		"custom/left-arrow-dark",
-		"clock#2",
-		"custom/right-arrow-dark",
-		"custom/right-arrow-light",
-		"clock#3",
-		"custom/right-arrow-dark"
-	],
-	"modules-right": [
-		"custom/left-arrow-dark",
-		"pulseaudio",
-		"custom/left-arrow-light",
-		"custom/left-arrow-dark",
-		"memory",
-		"custom/left-arrow-light",
-		"custom/left-arrow-dark",
-		"cpu",
-		"custom/left-arrow-light",
-		"custom/left-arrow-dark",
-		"battery",
-		"custom/left-arrow-light",
-		"custom/left-arrow-dark",
-		"disk",
-		"custom/left-arrow-light",
-		"custom/left-arrow-dark",
-		"tray"
-	],
-
-	"custom/left-arrow-dark": {
-		"format": "",
-		"tooltip": false
-	},
-	"custom/left-arrow-light": {
-		"format": "",
-		"tooltip": false
-	},
-	"custom/right-arrow-dark": {
-		"format": "",
-		"tooltip": false
-	},
-	"custom/right-arrow-light": {
-		"format": "",
-		"tooltip": false
-	},
-
-	"sway/workspaces": {
-		"disable-scroll": true,
-		"format": "{name}"
-	},
-
-	"clock#1": {
-		"format": "{:%a}",
-		"tooltip": false
-	},
-	"clock#2": {
-		"format": "{:%H:%M}",
-		"tooltip": false
-	},
-	"clock#3": {
-		"format": "{:%m-%d}",
-		"tooltip": false
-	},
-
-	"pulseaudio": {
-		"format": "{icon} {volume:2}%",
-		"format-bluetooth": "{icon}  {volume}%",
-		"format-muted": "MUTE",
-		"format-icons": {
-			"headphones": "",
-			"default": [
-				"",
-				""
-			]
-		},
-		"scroll-step": 5,
-		"on-click": "pamixer -t",
-		"on-click-right": "pavucontrol"
-	},
-	"memory": {
-		"interval": 5,
-		"format": "Mem {}%"
-	},
-	"cpu": {
-		"interval": 5,
-		"format": "CPU {usage:2}%"
-	},
-	"battery": {
-		"states": {
-			"good": 95,
-			"warning": 30,
-			"critical": 15
-		},
-		"format": "{icon} {capacity}%",
-		"format-icons": [
-			"",
-			"",
-			"",
-			"",
-			""
-		]
-	},
-	"disk": {
-		"interval": 5,
-		"format": "Disk {percentage_used:2}%",
-		"path": "/"
-	},
-	"tray": {
-		"icon-size": 20
-	}
+    "hyprland/workspaces": {
+        "format": "{name}",
+        "on-click": "activate",
+        "format-icons": {
+            "default": " ",
+            "active": "",
+            "urgent": ""
+        },
+        "persistent_workspaces": {
+            "*": 5  // Número de workspaces fixos
+        }
+    },
+    "tray": {
+        "icon-size": 16,
+        "spacing": 8,
+        "margin-left": 10  // Espaçamento após workspaces
+    },
+    "clock": {
+        "format": " {:%H:%M}",
+        "format-alt": " {:%A, %d %B %Y}",
+        "tooltip-format": "<big>{calendar}</big>",
+        "calendar": {
+		"mode"          : "year",
+		"mode-mon-col"  : 3,
+		"weeks-pos"     : "right",
+		"on-scroll"     : 1,
+		"on-click-right": "mode",
+		"format": {
+			"months":     "<span color='#ffead3'><b>{}</b></span>",
+			"days":       "<span color='#ecc6d9'><b>{}</b></span>",
+			"weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+			"weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+			"today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+		}
+        },
+        "interval": 1
+    },
+    "custom/notification": {
+        "format": " {}",
+        "exec": "dunstctl count waiting",
+        "on-click": "dunstctl close-all",
+        "interval": 5
+    },
+    "cpu": {
+        "format": " {usage}%",
+        "interval": 2,
+        "margin-left": 15  // Espaçamento entre widgets
+    },
+    "memory": {
+        "format": " {percentage}%",
+        "interval": 2,
+        "exec": "free -h | awk '/Mem/ {print $3}'",  // Correção para memória
+        "margin-left": 15
+    },
+    "disk": {
+        "format": " {percentage_used}%",
+        "path": "/",
+        "interval": 30,
+        "margin-left": 15
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": " Muted",
+        "format-icons": ["", "", ""],
+        "on-click": "pavucontrol",
+        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
+        "margin-left": 15
+    },
+    "network": {
+        "format-wifi": "",
+        "format-ethernet": "",
+        "format-disconnected": "",
+        "on-click": "nm-connection-editor",
+        "margin-left": 15
+    },
+    "bluetooth": {
+        "format": " {status}",
+        "exec": "bluetoothctl show | grep -q 'Powered: yes' && echo 'ON' || echo 'OFF'",
+        "interval": 5,
+        "on-click": "blueman-manager",
+        "margin-left": 15
+    },
+        "custom/brightness": {
+        "format": " {percent}%",
+        "exec": "brightnessctl | awk -F'[()]' '/Current brightness/ {print $2}'",
+        "on-click": "brightnessctl set 10%",
+        "on-scroll-up": "brightnessctl set +5%",
+        "on-scroll-down": "brightnessctl set 5%-",
+        "interval": 2
+    },
+    "custom/power": {
+        "format": "",
+        "on-click": "wlogout",
+        "margin-left": 15
+    }
 }

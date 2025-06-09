@@ -10,6 +10,7 @@ return {
       "hrsh7th/cmp-buffer",
       { "L3MON4D3/LuaSnip", build = "make install_jsregexp" },
       "saadparwaiz1/cmp_luasnip",
+
     },
     config = function()
 
@@ -28,6 +29,7 @@ return {
         { name = "path" },
         { name = "buffer" },
         { name = "luasnip" },
+
       },
       mapping = {
         ["<Tab>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },

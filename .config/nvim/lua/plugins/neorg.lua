@@ -15,8 +15,18 @@ return {
                   ["core.completion"] = {
                       config = {
                           engine = "nvim-cmp",
+                          workspaces = {
+                            notes = "~/Documents/Notes/"
+                          }
                       }
                   },
+                  ["core.dirman"] = {
+            config = {
+              workspaces = {
+                notes = "~/Documents/Notes/"
+              }
+            }
+          },
                   ["core.integrations.nvim-cmp"] = {},
               }
                     })

@@ -25,6 +25,14 @@ return {
         "toml",
         "yaml",
         "svelte",
+
+        "r",
+        "latex",
+        'markdown',
+        'markdown_inline',
+        'rnoweb',
+        'yaml',
+        'csv',
       }
       opts.sync_install = true
       opts.highlight = { enable = true }

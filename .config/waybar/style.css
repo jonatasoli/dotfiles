@@ -1,74 +1,68 @@
 * {
-	font-size: 20px;
-	font-family: monospace;
+font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free";
+font-size: 14px;
+font-weight: bold;
+border: none;
+border-radius: 0;
 }
 
 window#waybar {
-	background: #292b2e;
-	color: #fdf6e3;
+background-color: rgba(30, 30, 46, 0.3);
+color: #cdd6f4;
+border-bottom: 1px solid rgba(180, 190, 254, 0.1);
 }
 
-#custom-right-arrow-dark,
-#custom-left-arrow-dark {
-	color: #1a1a1a;
+/* Workspaces */
+#workspaces {
+margin-left: 8px;
 }
-#custom-right-arrow-light,
-#custom-left-arrow-light {
-	color: #292b2e;
-	background: #1a1a1a;
-}
-
-#workspaces,
-#clock.1,
-#clock.2,
-#clock.3,
-#pulseaudio,
-#memory,
-#cpu,
-#battery,
-#disk,
-#tray {
-	background: #1a1a1a;
-}
-
 #workspaces button {
-	padding: 0 2px;
-	color: #fdf6e3;
+padding: 0 6px;
+color: #6c7086;
 }
-#workspaces button.focused {
-	color: #268bd2;
-}
-#workspaces button:hover {
-	box-shadow: inherit;
-	text-shadow: inherit;
-}
-#workspaces button:hover {
-	background: #1a1a1a;
-	border: #1a1a1a;
-	padding: 0 3px;
+#workspaces button.active {
+color: #b4befe;
 }
 
-#pulseaudio {
-	color: #268bd2;
-}
-#memory {
-	color: #2aa198;
-}
-#cpu {
-	color: #6c71c4;
-}
-#battery {
-	color: #859900;
-}
-#disk {
-	color: #b58900;
+/* Tray */
+#tray {
+padding-left: 12px;
+border-left: 1px solid rgba(108, 112, 134, 0.3);
 }
 
-#clock,
-#pulseaudio,
-#memory,
-#cpu,
-#battery,
-#disk {
-	padding: 0 10px;
+/* Centro */
+#clock {
+background: rgba(180, 190, 254, 0.1);
+padding: 0 16px;
+margin: 0 8px;
+border-radius: 6px;
+}
+#custom-notification {
+color: #f9e2af;
+padding-right: 8px;
+}
+
+/* Módulos à direita */
+#cpu, #memory, #disk,
+#pulseaudio, #network,
+#bluetooth, #custom-brightness,
+#custom-power {
+padding: 0 10px;
+margin-left: 10px;
+}
+
+/* Cores */
+#cpu { color: #94e2d5; }
+#memory { color: #74c7ec; }
+#disk { color: #89b4fa; }
+#pulseaudio { color: #cba6f7; }
+#network { color: #74c7ec; }
+#bluetooth { color: #89b4fa; }
+#custom-brightness { color: #fab387; }
+#custom-power { color: #f38ba8; }
+
+/* Hover */
+#waybar > box > widget > *:hover {
+background-color: rgba(180, 190, 254, 0.15);
+min-height: 46px;
 }

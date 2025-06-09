@@ -5,9 +5,8 @@ local g = vim.g
 
 local function set_globals()
   g.mapleader = " "
-  g.mapleader = " "
-  g.python3_host_prog = "/home/feanor/.pyenv/shims/python"
-  g.python_host_prog = "/home/feanor/.pyenv/shims/python"
+  g.python3_host_prog = ".venv/bin/python"
+  g.python_host_prog = ".venv/bin/python"
 
 end
 
@@ -153,15 +152,22 @@ local function set_options()
   vim.cmd(
     [[
 cnoreabbrev W w
+cnoreabbrev ẅ w
+cnoreabbrev Ẅ w
 cnoreabbrev W! w!
+cnoreabbrev ẅ! w!
+cnoreabbrev Ẅ! w!
 cnoreabbrev Q q
 cnoreabbrev Q! q!
 cnoreabbrev Qa qa
 cnoreabbrev Qa! qa!
 cnoreabbrev Wq wq
+cnoreabbrev Ẅq wq
 cnoreabbrev Wa wa
 cnoreabbrev WQ wq
+cnoreabbrev ẄQ wq
 cnoreabbrev Wqa wqa
+cnoreabbrev Ẅqa wqa
 ]]
   )
 end

@@ -20,36 +20,35 @@ return {
         }
       }
     })
+    servers = {
+      "bashls",
+      "lua_ls",
+      "rust_analyzer",
+      "svelte",
+      "clangd",
+      "neocmake",
+      "dockerls",
+      "docker_compose_language_service",
+      "eslint",
+      "html",
+      "htmx",
+      "jinja_lsp",
+      "marksman",
+      "pyright",
+      "ruff",
+      "sqlls",
+      "somesass_ls",
+      "tailwindcss",
+      "cssls",
+      "biome",
+      "jsonls",
+      "yamlls",
+    }
 
     -- Setup Mason-Lspconfig
     require("mason-lspconfig").setup {
       automatic_installation = true,
-      ensure_installed = {
-        "bashls",
-        "lua_ls",
-        "rust_analyzer",
-        "svelte",
-        "clangd",
-        "neocmake",
-        -- "denols",
-        "dockerls",
-        "docker_compose_language_service",
-        "eslint",
-        "html",
-        "htmx",
-        "jinja_lsp",
-        "marksman",
-        "pyright",
-        "ruff_lsp",
-        "sqlls",
-        "somesass_ls",
-        "tailwindcss",
-        "cssls",
-        "biome",
-        "volar",
-        "jsonls",
-        "yamlls",
-      },
+      servers,
     }
 
     -- Setup Mason-Tool-Installer
@@ -64,96 +63,24 @@ return {
     }
 
     -- LSP Configuration
-    local lspconfig = require "lspconfig"
-    local capabilities = nil
-    if pcall(require, "cmp_nvim_lsp") then
       capabilities = require("cmp_nvim_lsp").default_capabilities()
-    end
-    local on_attach = function(client, bufnr)
-      local bufopts = { noremap=true, silent=true, buffer=bufnr }
-      vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-      vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-    end
-
-    local servers = {
-      bashls = {},
-      lua_ls = {},
-      rust_analyzer = {},
-      svelte = {},
-      clangd = {},
-      neocmake = {},
-      -- denols = {},
-      dockerls = {},
-      docker_compose_language_service = {},
-      eslint = {},
-      html = {},
-      htmx = {},
-      jinja_lsp = {},
-      marksman = {},
-      pyright = {},
-      ruff_lsp = {},
-      sqlls = {},
-      somesass_ls = {},
-      tailwindcss = {},
-      cssls = {},
-      biome = {},
-      volar = {},
-      jsonls = {
-        settings = {
-          json = {
-            schemas = require("schemastore").json.schemas(),
-            validate = { enable = true },
-          },
-        },
-      },
-      yamlls = {
-        settings = {
-          yaml = {
-            schemaStore = {
-              enable = false,
-              url = "",
-            },
-            schemas = require("schemastore").yaml.schemas(),
-          },
-        },
-      },
-    }
-
-            for server, config in pairs(servers) do
-        if server == "svelte" then
-          lspconfig[server].setup(vim.tbl_extend("force", {
-            capabilities = capabilities,
-            filetypes = { 'typescript', 'javascript', 'svelte', 'html', 'css' },
-            on_attach = function(client, bufnr)
-              on_attach(client, bufnr)
-              local bufopts = { noremap=true, silent=true, buffer=bufnr }
-              vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-              vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-              vim.api.nvim_create_autocmd("BufWritePost", {
-                pattern = { "*.js", "*.ts" },
-                group = vim.api.nvim_create_augroup("svelte_ondidchangetsorjsfile", { clear = true }),
-                callback = function(ctx)
-                  client.notify("$/onDidChangeTsOrJsFile", { uri = vim.uri_from_bufnr(ctx.buf) })
-                end,
-              })
-            end,
-            settings = {
-              svelte = {
-                plugin = {
-                  typescript = {
-                    enabled = true,
-                  },
-                },
-              },
-            },
-          }, config))
-        else
-          lspconfig[server].setup(vim.tbl_extend("force", {
-            capabilities = capabilities,
-            on_attach = on_attach,
-          }, config))
-        end
+      for _, server in pairs(servers) do
+        vim.lsp.config(server, { capabilities = capabilities })
       end
-    end,
+
+      vim.api.nvim_create_autocmd('LspAttach', {
+        group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+        callback = function(ev)
+          local opts = { buffer = ev.buf }
+
+          vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+          vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+          vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+          vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
+          vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
+          vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)
+        end,
+      })
+      end
   },
 }
